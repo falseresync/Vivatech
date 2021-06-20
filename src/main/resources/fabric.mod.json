@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "id": "vivatech",
+  "version": "${version}",
+
+  "name": "ModFest",
+  "description": "This is an example description! Tell everyone what your mod is about!",
+  "authors": [
+    "falseresync"
+  ],
+  "contact": {
+    "homepage": "https://fabricmc.net/",
+    "sources": "https://github.com/FabricMC/fabric-example-mod"
+  },
+
+  "license": "MIT",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "vivatech.Vivatech"
+    ],
+    "client": [
+      "vivatech.VivatechClient"
+    ]
+  },
+  "mixins": [
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.11.3",
+    "fabric": "*",
+    "minecraft": "1.17.x",
+    "java": ">=16"
+  }
+}
