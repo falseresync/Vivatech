@@ -1,17 +1,13 @@
-package vivatech.entity;
+package vivatech.entity.ai;
 
 import com.google.common.collect.ImmutableList;
-import com.google.common.collect.ImmutableMap;
-import com.google.common.collect.ImmutableSet;
-import com.mojang.datafixers.util.Pair;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.brain.Activity;
 import net.minecraft.entity.ai.brain.Brain;
-import net.minecraft.entity.ai.brain.MemoryModuleState;
-import net.minecraft.entity.ai.brain.MemoryModuleType;
-import net.minecraft.entity.ai.brain.task.*;
-import net.minecraft.util.math.intprovider.UniformIntProvider;
+import net.minecraft.entity.ai.brain.task.LookAroundTask;
+import net.minecraft.entity.ai.brain.task.StrollTask;
+import net.minecraft.entity.ai.brain.task.WanderAroundTask;
+import vivatech.entity.AutomatonEntity;
+import vivatech.entity.ai.task.AutomatonTask;
 
 import java.util.Set;
 
@@ -30,8 +26,8 @@ public class AutomatonBrain {
             Activity.CORE,
             0,
             ImmutableList.of(
-                new LookAroundTask(45, 90),
-                new WanderAroundTask()
+                new WanderAroundTask(),
+                new AutomatonTask()
             )
         );
     }
@@ -39,17 +35,17 @@ public class AutomatonBrain {
     private static void addIdleActivities(Brain<AutomatonEntity> brain) {
         brain.setTaskList(
             Activity.IDLE,
-            0,
+            10,
             ImmutableList.of(
                 new LookAroundTask(45, 90),
-                new WanderAroundTask()
+                new StrollTask(0.15F, 5, 2)
             )
         );
     }
 
     public static void updateActivities(AutomatonEntity entity) {
-        Brain<AutomatonEntity> brain = entity.getBrain();
-        Activity activity = brain.getFirstPossibleNonCoreActivity().orElse(null);
+        var brain = entity.getBrain();
+        var activity = brain.getFirstPossibleNonCoreActivity().orElse(null);
 //        if (activity != Activity.PLAY_DEAD) {
 //            brain.resetPossibleActivities(List.of(Activity.IDLE));
 //            if (activity == Activity.FIGHT && brain.getFirstPossibleNonCoreActivity().orElse(null) != Activity.FIGHT) {

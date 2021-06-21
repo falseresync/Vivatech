@@ -7,8 +7,10 @@ import net.minecraft.util.Identifier;
 import static vivatech.util.IdUtil.id;
 import static vivatech.util.IdUtil.texId;
 
-public class VtIds {
+public class VivatechIds {
     public static final Identifier AUTOMATON = id("automaton");
+    public static final Identifier AUTOMATA_PROFESSIONS = id("automata_professions");
+    public static final Identifier NONE = id("none");
 
     @Environment(EnvType.CLIENT)
     public static class Client {
