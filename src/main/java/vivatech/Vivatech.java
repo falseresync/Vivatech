@@ -9,7 +9,10 @@ import net.minecraft.entity.SpawnGroup;
 import net.minecraft.entity.ai.brain.sensor.SensorType;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.util.registry.Registry;
-import vivatech.entity.ai.AutomatonData;
+import vivatech.data.VivatechIds;
+import vivatech.registry.VivatechItems;
+import vivatech.registry.VivatechRegistry;
+import vivatech.entity.data.AutomatonData;
 import vivatech.entity.AutomatonEntity;
 import vivatech.entity.ai.sensor.AutomatonSensor;
 import vivatech.mixin.SensorTypeAccessor;
@@ -27,6 +30,7 @@ public class Vivatech implements ModInitializer {
     @Override
     public void onInitialize() {
         VivatechRegistry.init();
+        VivatechItems.init();
         FabricDefaultAttributeRegistry.register(AUTOMATON, AutomatonEntity.createMobAttributes());
         TrackedDataHandlerRegistry.register(AutomatonData.HANDLER);
         SENSOR = Registry.register(Registry.SENSOR_TYPE, id("sensor"), SensorTypeAccessor.init(AutomatonSensor::new));

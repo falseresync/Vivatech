@@ -1,6 +1,5 @@
 package vivatech.entity.ai.task;
 
-import net.minecraft.block.Blocks;
 import net.minecraft.entity.ai.brain.MemoryModuleState;
 import net.minecraft.entity.ai.brain.MemoryModuleType;
 import net.minecraft.entity.ai.brain.task.Task;

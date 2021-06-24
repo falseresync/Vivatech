@@ -9,6 +9,7 @@ import net.minecraft.entity.ai.brain.sensor.SensorType;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.mob.PathAwareEntity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
 import net.minecraft.nbt.NbtOps;
@@ -17,8 +18,8 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.world.World;
 import vivatech.Vivatech;
 import vivatech.entity.ai.AutomatonBrain;
-import vivatech.entity.ai.AutomatonData;
-import vivatech.entity.ai.AutomatonProfession;
+import vivatech.entity.data.AutomatonData;
+import vivatech.entity.data.AutomatonJob;
 
 import java.util.List;
 
@@ -75,7 +76,7 @@ public class AutomatonEntity extends PathAwareEntity {
     @Override
     protected void initDataTracker() {
         super.initDataTracker();
-        dataTracker.startTracking(AUTOMATON_DATA, new AutomatonData(AutomatonProfession.NONE));
+        dataTracker.startTracking(AUTOMATON_DATA, new AutomatonData(AutomatonJob.NONE, List.of()));
     }
 
     @Override

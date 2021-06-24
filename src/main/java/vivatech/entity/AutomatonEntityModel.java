@@ -6,7 +6,7 @@ import net.minecraft.client.render.entity.model.EntityModel;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
 import net.minecraft.client.render.entity.model.EntityModelPartNames;
 import net.minecraft.client.util.math.MatrixStack;
-import vivatech.VivatechIds;
+import vivatech.data.VivatechIds;
 
 public class AutomatonEntityModel extends EntityModel<AutomatonEntity> {
     public static final EntityModelLayer MAIN_LAYER = new EntityModelLayer(VivatechIds.AUTOMATON, "main");

@@ -3,7 +3,7 @@ package vivatech.entity;
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.entity.MobEntityRenderer;
 import net.minecraft.util.Identifier;
-import vivatech.VivatechIds;
+import vivatech.data.VivatechIds;
 
 public class AutomatonEntityRenderer extends MobEntityRenderer<AutomatonEntity, AutomatonEntityModel> {
     public AutomatonEntityRenderer(EntityRendererFactory.Context context) {
